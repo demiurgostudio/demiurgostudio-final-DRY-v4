@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PLACEHOLDER: [TITLE — actualizar con nombre del proyecto o cliente] -->
+  <title>Demiurgo Studio · Sitios Web Profesionales en Buenos Aires</title>
+  <!-- PLACEHOLDER: [META DESCRIPTION] -->
+  <meta name="description"
+    content="Sitios web de alto impacto para profesionales y comercios en Argentina. Diseño, código limpio y entrega en tiempo récord." />
+  <meta name="theme-color" content="#001c25" />
+  <!-- PLACEHOLDER: [FAVICON — assets/favicon-32x32.png] -->
+  <link rel="icon" href="assets/favicon-32x32.png" />
+
+  <!-- Tipografías: Plus Jakarta Sans + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- FontAwesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ELEMENTOS FLOTANTES (Cursor, Toast, WhatsApp)
+       ===================================================== -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <div class="toast" id="welcome-toast">
+    <button class="toast-close" id="toast-close" aria-label="Cerrar aviso">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <p class="toast-text">
+      👋 ¡Hola! Somos <strong>Demiurgo Studio</strong>.<br />
+      ¿Querés que te demos una mano con tu web?
+    </p>
+    <!-- PLACEHOLDER: [WHATSAPP TOAST] -->
+    <a href="https://wa.me/5491125371329?text=Hola!%20Vi%20su%20p%C3%A1gina%20y%20me%20interesa%20saber%20m%C3%A1s."
+      target="_blank" rel="noopener" class="toast-cta">
+      Escribinos <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- PLACEHOLDER: [WHATSAPP FLOAT] -->
+  <a href="https://wa.me/5491125371329" class="wa-float magnet-target" target="_blank" rel="noopener"
+    aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- =====================================================
+       MOBILE DRAWER (Menú lateral responsive)
+       ===================================================== -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" role="dialog" aria-label="Menú de navegación móvil">
+    <div class="mobile-drawer-header">
+      <!-- PLACEHOLDER: [LOGO MOBILE — assets/logo.svg] -->
+      <img src="assets/logo.svg" alt="Demiurgo Studio" class="mobile-drawer-logo" />
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Cerrar menú">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="#servicios" class="mobile-drawer-link"><i class="fa-solid fa-desktop"></i> Servicios</a></li>
+      <li><a href="#nosotros" class="mobile-drawer-link"><i class="fa-solid fa-users"></i> Nosotros</a></li>
+      <li><a href="#proceso" class="mobile-drawer-link"><i class="fa-solid fa-bolt"></i> Proceso</a></li>
+      <li><a href="#planes" class="mobile-drawer-link"><i class="fa-solid fa-layer-group"></i> Planes</a></li>
+      <li><a href="#portfolio" class="mobile-drawer-link"><i class="fa-solid fa-images"></i> Portafolio</a></li>
+      <li><a href="#faq" class="mobile-drawer-link"><i class="fa-solid fa-circle-question"></i> Preguntas</a></li>
+      <li><a href="#contacto" class="mobile-drawer-link"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+    </ul>
+    <div class="mobile-drawer-cta">
+      <!-- PLACEHOLDER: [WHATSAPP LINK MOBILE] -->
+      <a href="https://wa.me/5491125371329" target="_blank" rel="noopener" class="btn btn-primary mobile-drawer-wa">
+        <i class="fa-brands fa-whatsapp"></i> Hablemos
+      </a>
+    </div>
+  </aside>
+
+  <!-- =====================================================
+       NAVBAR SMART
+       ===================================================== -->
+  <header class="nav" id="smart-nav">
+    <div class="nav-inner">
+      <!-- PLACEHOLDER: [LOGO NAV — assets/logo.svg] -->
+      <a href="#inicio" class="nav-logo magnet-target" aria-label="Ir al inicio">
+        <img src="assets/logo.png" alt="Demiurgo Studio" class="nav-logo-img" />
+      </a>
+      <nav class="nav-menu" aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="#servicios" class="magnet-target">Servicios</a></li>
+          <li><a href="#nosotros" class="magnet-target">Nosotros</a></li>
+          <li><a href="#proceso" class="magnet-target">Proceso</a></li>
+          <li><a href="#planes" class="magnet-target">Planes</a></li>
+          <li><a href="#portfolio" class="magnet-target">Portafolio</a></li>
+        </ul>
+      </nav>
+      <!-- PLACEHOLDER: [WHATSAPP NAV] -->
+      <a href="https://wa.me/5491125371329" class="nav-cta magnet-target" target="_blank" rel="noopener">
+        Hablemos <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+       ===================================================== -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-bg parallax-bg"></div>
+      <div class="hero-grid parallax-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-content">
+        <!-- PLACEHOLDER: [HERO BADGE] -->
+        <div class="hero-badge">
+          <i class="fa-solid fa-bolt"></i> Estudio Digital · Buenos Aires
+        </div>
+        <!-- PLACEHOLDER: [HERO TITLE] -->
+        <h1 class="hero-title">Tu sitio web listo<br />en 48 horas.</h1>
+        <!-- PLACEHOLDER: [HERO DESCRIPTION] -->
+        <p class="hero-desc">Diseñamos sitios web de alto impacto para profesionales y comercios que quieren crecer.
+          Código limpio, carga instantánea y conversión directa a WhatsApp.</p>
+        <div class="hero-actions">
+          <!-- PLACEHOLDER: [CTA HERO WHATSAPP] -->
+          <a href="https://wa.me/5491125371329?text=Hola!%20Quiero%20consultar%20por%20una%20p%C3%A1gina%20web."
+            target="_blank" rel="noopener" class="btn btn-primary magnet-target">
+            Empezar ahora <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#servicios" class="btn btn-outline magnet-target">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <i class="fa-solid fa-caret-down"></i>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- PILLARS (Métricas clave) -->
+    <section class="pillars" id="pillars" aria-label="Métricas de rendimiento">
+      <div class="pillars-inner">
+        <div class="pillar gs-reveal-up">
+          <p class="pillar-val" id="pillar-speed">&lt; 1.0s</p>
+          <p class="pillar-title">Carga Instantánea</p>
+          <p class="pillar-desc">Core Web Vitals optimizados para no perder ni una visita por lentitud.</p>
+        </div>
+        <div class="pillar gs-reveal-up">
+          <p class="pillar-val" id="pillar-code">100%</p>
+          <p class="pillar-title">Código Seguro</p>
+          <p class="pillar-desc">Arquitectura estática sin bases de datos vulnerables ni plugins pesados.</p>
+        </div>
+        <div class="pillar gs-reveal-up">
+          <p class="pillar-val" id="pillar-focus">Directo</p>
+          <p class="pillar-title">Foco en WhatsApp</p>
+          <p class="pillar-desc">Cada botón pensado para convertir visitas en conversaciones comerciales reales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EL PROBLEMA -->
+    <section class="problema section-wrapper" id="problema">
+      <div class="section-inner">
+        <div class="problema-header gs-reveal-up">
+          <div class="section-tag">El problema</div>
+          <h2 class="section-title">Tener Instagram no es<br /><em class="text-cyan">tener presencia digital.</em></h2>
+          <p class="section-subtitle">Muchos negocios publican contenido pero siguen sin transmitir confianza ni generar consultas reales.</p>
+        </div>
+        <div class="problema-grid">
+          <!-- Cards interactivas enlazadas a PROBLEMA_DATA de JS -->
+          <div class="card card-problem" data-problema="invisible">
+            <i class="fa-solid fa-eye-slash card-icon-sm"></i>
+            <h3 class="card-title-sm">Negocio invisible</h3>
+            <p class="card-text">Tenés redes pero no generás la confianza necesaria para convertir visitas en consultas.</p>
+            <div class="card-cta-link">Saber más <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+          <div class="card card-problem" data-problema="improvisada">
+            <i class="fa-solid fa-brush card-icon-sm"></i>
+            <h3 class="card-title-sm">Imagen improvisada</h3>
+            <p class="card-text">Tu marca no transmite profesionalismo ni diferenciación frente a la competencia.</p>
+            <div class="card-cta-link">Saber más <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+          <div class="card card-problem" data-problema="desconectada">
+            <i class="fa-solid fa-link-slash card-icon-sm"></i>
+            <h3 class="card-title-sm">Comunicación desconectada</h3>
+            <p class="card-text">Tu web, tus redes y tu WhatsApp parecen negocios distintos entre sí.</p>
+            <div class="card-cta-link">Saber más <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+          <div class="card card-problem" data-problema="boca">
+            <i class="fa-solid fa-comments card-icon-sm"></i>
+            <h3 class="card-title-sm">Solo boca a boca</h3>
+            <p class="card-text">Las consultas llegan únicamente cuando alguien te recomienda, no de forma orgánica.</p>
+            <div class="card-cta-link">Saber más <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <p class="problema-cierre gs-reveal-up">
+          La mayoría de los negocios no necesita más publicaciones.<br />
+          <strong class="text-cyan">Necesita un sistema digital coherente.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios section-wrapper" id="servicios">
+      <div class="section-inner">
+        <div class="servicios-header">
+          <div class="gs-reveal-up">
+            <div class="section-tag">Lo que hacemos</div>
+            <h2 class="section-title">Sitios web que <em class="text-cyan">venden.</em></h2>
+          </div>
+          <!-- PLACEHOLDER: [WHATSAPP CONSULTAR PRECIO] -->
+          <a href="https://wa.me/5491125371329?text=Hola!%20Quiero%20consultar%20precio%20por%20una%20p%C3%A1gina%20web."
+            target="_blank" rel="noopener" class="btn btn-outline magnet-target gs-reveal-up">
+            Consultar precio
+          </a>
+        </div>
+        <div class="servicios-grid">
+          <!-- Cards interactivas enlazadas a SERVICIOS_DATA de JS -->
+          <div class="card card-service" data-modal="landing">
+            <div class="card-icon-box"><i class="fa-solid fa-rocket"></i></div>
+            <h3 class="card-title-md">Landing Page</h3>
+            <p class="card-text">Una página con un solo objetivo: que te escriban por WhatsApp. Hero, beneficios, prueba social y CTA. Lista en 3 a 7 días.</p>
+            <div class="card-cta-link">Ver detalle <i class="fa-solid fa-arrow-right"></i></div>
+            <span class="card-line"></span>
+          </div>
+          <div class="card card-service" data-modal="institucional">
+            <div class="card-icon-box"><i class="fa-solid fa-building"></i></div>
+            <h3 class="card-title-md">Web Institucional</h3>
+            <p class="card-text">Presencia completa para tu negocio: quiénes somos, servicios, galería y contacto. La carta de presentación que cierra clientes.</p>
+            <div class="card-cta-link">Ver detalle <i class="fa-solid fa-arrow-right"></i></div>
+            <span class="card-line"></span>
+          </div>
+          <div class="card card-service" data-modal="catalogo">
+            <div class="card-icon-box"><i class="fa-solid fa-store"></i></div>
+            <h3 class="card-title-md">Catálogo Digital</h3>
+            <p class="card-text">Mostrá tus productos con filtros y fichas individuales. Cada ítem con botón de pedido directo por WhatsApp.</p>
+            <div class="card-cta-link">Ver detalle <i class="fa-solid fa-arrow-right"></i></div>
+            <span class="card-line"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="nosotros section-wrapper" id="nosotros">
+      <div class="section-inner">
+        <div class="nosotros-grid">
+          <div class="nosotros-visual gs-reveal-up">
+            <!-- PLACEHOLDER: [VIDEO NOSOTROS] -->
+            <video class="nosotros-video" autoplay muted loop playsinline>
+              <source src="https://videos.pexels.com/video-files/3194219/3194219-hd_1280_720_25fps.mp4" type="video/mp4" />
+            </video>
+            <div class="nosotros-badge">
+              <i class="fa-solid fa-circle-check"></i> Criterio & Ejecución
+            </div>
+          </div>
+          <div class="nosotros-content">
+            <div class="section-tag gs-reveal-up">Quiénes somos</div>
+            <h2 class="section-title gs-reveal-up">No somos una agencia burocrática.<br />Somos tu <em class="text-cyan">aliado directo.</em></h2>
+            <p class="nosotros-text gs-reveal-up">Trabajamos mano a mano con vos: comunicación ágil, entregas en tiempo récord y cero intermediarios. Cada proyecto es una conversación directa entre tu negocio y quien lo construye.</p>
+            <ul class="nosotros-values">
+              <li class="nosotros-value gs-reveal-up">
+                <i class="fa-solid fa-bullseye nosotros-value-icon"></i>
+                <div>
+                  <strong>Orientados a resultados</strong>
+                  <p>Construimos webs pensadas para generar consultas y presupuestos concretos.</p>
+                </div>
+              </li>
+              <li class="nosotros-value gs-reveal-up">
+                <i class="fa-solid fa-handshake nosotros-value-icon"></i>
+                <div>
+                  <strong>Comunicación directa</strong>
+                  <p>Trato directo con quien diseña y programa. Sin demoras innecesarias.</p>
+                </div>
+              </li>
+              <li class="nosotros-value gs-reveal-up">
+                <i class="fa-solid fa-wand-magic-sparkles nosotros-value-icon"></i>
+                <div>
+                  <strong>Estética impecable</strong>
+                  <p>Animaciones sutiles y diseño moderno que posicionan tu negocio un escalón arriba.</p>
+                </div>
+              </li>
+            </ul>
+            <!-- PLACEHOLDER: [CTA NOSOTROS WHATSAPP] -->
+            <a href="https://wa.me/5491125371329?text=Hola!%20Vi%20su%20web%20y%20quiero%20saber%20m%C3%A1s."
+              target="_blank" rel="noopener" class="btn btn-primary magnet-target gs-reveal-up">
+              Hablemos por WhatsApp <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="proceso section-wrapper" id="proceso">
+      <div class="section-inner">
+        <div class="proceso-header gs-reveal-up">
+          <div class="section-tag">Cómo trabajamos</div>
+          <h2 class="section-title">Tu sitio en <em class="text-cyan">4 pasos simples.</em></h2>
+        </div>
+        <div class="proceso-steps-container">
+          <div class="proceso-line-bg"></div>
+          <div class="proceso-line-fill"></div>
+          <div class="proceso-steps-grid">
+            <div class="proceso-step gs-step">
+              <div class="proceso-step-dot">1</div>
+              <div class="proceso-step-text">
+                <h4>Diagnóstico y brief</h4>
+                <p>Definimos la propuesta de valor de tu negocio, el cliente objetivo y la estructura ideal para captar consultas.</p>
+              </div>
+            </div>
+            <div class="proceso-step gs-step">
+              <div class="proceso-step-dot">2</div>
+              <div class="proceso-step-text">
+                <h4>Desarrollo y demo</h4>
+                <p>Programamos el sitio con animaciones a medida, carga rápida y responsive perfecto para celulares.</p>
+              </div>
+            </div>
+            <div class="proceso-step gs-step">
+              <div class="proceso-step-dot">3</div>
+              <div class="proceso-step-text">
+                <h4>Lanzamiento</h4>
+                <p>Publicamos en tu dominio, configuramos el enlace a tu WhatsApp y dejamos la web lista para vender.</p>
+              </div>
+            </div>
+            <div class="proceso-step gs-step">
+              <div class="proceso-step-dot">4</div>
+              <div class="proceso-step-text">
+                <h4>Optimización</h4>
+                <p>Monitoreamos resultados, ajustamos el copy y los botones de conversión con cada dato real.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANES -->
+    <section class="planes section-wrapper" id="planes">
+      <div class="section-inner">
+        <div class="planes-header gs-reveal-up">
+          <div class="section-tag">Planes</div>
+          <h2 class="section-title">Una solución para <em class="text-cyan">cada etapa.</em></h2>
+        </div>
+        <div class="planes-stacking">
+          <!-- PLAN 1 -->
+          <div class="card card-plan stack-card">
+            <div class="plan-label">PACK ESENCIAL</div>
+            <div class="plan-number">01</div>
+            <p class="card-text">Landing Page de Conversión. Tu primera huella digital profesional — un solo objetivo: que te contacten.</p>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> One-page enfocada en conversión</li>
+              <li><i class="fa-solid fa-circle-check"></i> CTA directo a WhatsApp</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hosting + dominio .com.ar incluido</li>
+              <li><i class="fa-solid fa-circle-check"></i> Entrega en 3 a 7 días</li>
+            </ul>
+            <!-- PLACEHOLDER: [LINK PLAN 1] -->
+            <a href="https://wa.me/5491125371329?text=Hola!%20Me%20interesa%20el%20Pack%20Esencial." target="_blank"
+              rel="noopener" class="btn btn-primary plan-btn magnet-target">
+              Desde $300 USD · Consultar
+            </a>
+          </div>
+
+          <!-- PLAN 2 (DESTACADO) -->
+          <div class="card card-plan plan-highlight stack-card">
+            <div class="plan-ribbon">MÁS ELEGIDO</div>
+            <div class="plan-label">PACK PRO</div>
+            <div class="plan-number">02</div>
+            <p class="card-text">Web Institucional completa. Tu carta de presentación digital que trabaja las 24 horas.</p>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> Multi-sección + galería</li>
+              <li><i class="fa-solid fa-circle-check"></i> Testimonios y mapa de ubicación</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hosting + dominio .com.ar incluido</li>
+              <li><i class="fa-solid fa-circle-check"></i> Entrega en 2 a 4 semanas</li>
+            </ul>
+            <!-- PLACEHOLDER: [LINK PLAN 2] -->
+            <a href="https://wa.me/5491125371329?text=Hola!%20Me%20interesa%20el%20Pack%20Pro." target="_blank"
+              rel="noopener" class="btn btn-primary plan-btn magnet-target">
+              Desde $600 USD · Consultar
+            </a>
+          </div>
+
+          <!-- PLAN 3 -->
+          <div class="card card-plan stack-card">
+            <div class="plan-label">PACK DOMINIO</div>
+            <div class="plan-number">03</div>
+            <p class="card-text">Catálogo Digital con productos y pedidos por WhatsApp. Tu motor de ventas mensual.</p>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> Fichas de producto + filtros</li>
+              <li><i class="fa-solid fa-circle-check"></i> Pedido individual directo a WhatsApp</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hosting + dominio .com.ar incluido</li>
+              <li><i class="fa-solid fa-circle-check"></i> Entrega en 3 a 6 semanas</li>
+            </ul>
+            <!-- PLACEHOLDER: [LINK PLAN 3] -->
+            <a href="https://wa.me/5491125371329?text=Hola!%20Me%20interesa%20el%20Pack%20Dominio." target="_blank"
+              rel="noopener" class="btn btn-primary plan-btn magnet-target">
+              Desde $1.000 USD · Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO 3D -->
+    <section class="portfolio" id="portfolio">
+      <div class="portfolio-header">
+        <div class="section-tag center-tag">Portafolio</div>
+        <h2 class="section-title">Trabajos que <em class="text-cyan">hablan solos.</em></h2>
+      </div>
+
+      <button class="portfolio-nav portfolio-nav-left" id="portfolio-prev" title="Anterior" aria-label="Anterior">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="portfolio-nav portfolio-nav-right" id="portfolio-next" title="Siguiente" aria-label="Siguiente">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div class="portfolio-viewport" id="portfolio-viewport">
+        <div class="portfolio-stage" id="portfolio-stage">
+          <!-- PLACEHOLDER: [IMÁGENES PORTFOLIO] -->
+          <div class="portfolio-slot">
+            <div class="portfolio-card" data-title="Branding & Identidad"
+              data-desc="Construcción de identidad visual para estudio contable. Logo, paleta, tipografías y guía de estilo completa.">
+              <img src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d?w=500&q=80&fit=crop"
+                alt="Branding & Identidad" loading="lazy" />
+              <div class="portfolio-card-info"><h3>Branding</h3></div>
+            </div>
+          </div>
+          <div class="portfolio-slot">
+            <div class="portfolio-card" data-title="Landing Page · Psicóloga"
+              data-desc="One-page de alta conversión para profesional de salud. CTA directo a WhatsApp y carga en menos de 1 segundo.">
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&q=80&fit=crop"
+                alt="Landing Page" loading="lazy" />
+              <div class="portfolio-card-info"><h3>Landing Page</h3></div>
+            </div>
+          </div>
+          <div class="portfolio-slot">
+            <div class="portfolio-card" data-title="Web Institucional · Ferretería"
+              data-desc="Sitio multi-sección con catálogo de productos y formulario de presupuesto integrado.">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80&fit=crop"
+                alt="Web Institucional" loading="lazy" />
+              <div class="portfolio-card-info"><h3>Web Institucional</h3></div>
+            </div>
+          </div>
+          <div class="portfolio-slot">
+            <div class="portfolio-card" data-title="Catálogo Digital · Peluquería"
+              data-desc="Catálogo de servicios con precios y botón de reserva directa por WhatsApp sin carrito ni pasarela de pago.">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80&fit=crop"
+                alt="Catálogo Digital" loading="lazy" />
+              <div class="portfolio-card-info"><h3>Catálogo Digital</h3></div>
+            </div>
+          </div>
+          <div class="portfolio-slot">
+            <div class="portfolio-card" data-title="Diseño Web · Taller Mecánico"
+              data-desc="Presencia digital completa con sección de servicios, ubicación en mapa y testimonios de clientes reales.">
+              <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500&q=80&fit=crop"
+                alt="Taller Mecánico" loading="lazy" />
+              <div class="portfolio-card-info"><h3>Diseño Web</h3></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal nativo para detalle de Portfolio -->
+      <dialog class="portfolio-modal" id="portfolio-modal">
+        <h2 class="portfolio-modal-title" id="portfolio-modal-title"></h2>
+        <p class="portfolio-modal-desc" id="portfolio-modal-desc"></p>
+        <button class="btn btn-primary portfolio-modal-close" id="portfolio-modal-close">Cerrar</button>
+      </dialog>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section-wrapper" id="faq">
+      <div class="section-inner">
+        <div class="faq-header gs-reveal-up">
+          <div class="section-tag">FAQ</div>
+          <h2 class="section-title">Preguntas <em class="text-cyan">frecuentes.</em></h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item gs-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿En cuánto tiempo está lista mi página?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Según el paquete: una Landing Page en 3 a 7 días, una Web Institucional en 2 a 4 semanas y un Catálogo Digital en 3 a 6 semanas, contando desde el brief aprobado.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item gs-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿Necesito saber programar para gestionar mi web?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>No. Tu sitio se entrega listo para publicar. Las actualizaciones las coordinás con nosotros o las delegás en nuestro plan de mantenimiento mensual.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item gs-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿El hosting y el dominio .com.ar están incluidos?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Sí. El hosting en Hostinger y el dominio .com.ar están incluidos en todos los paquetes base.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item gs-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿El sitio funciona bien en celulares?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Sí. Todos nuestros sitios se construyen mobile-first y se prueban en mobile, tablet y desktop antes de la entrega sin scroll horizontal.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item gs-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿Qué pasa si quiero hacer cambios al ver el resultado?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Incluimos una ronda de ajustes post-entrega para asegurar que el resultado cumpla con todos tus requerimientos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta section-wrapper" id="contacto">
+      <div class="section-inner cta-inner">
+        <div class="section-tag center-tag gs-reveal-up">Siguiente paso</div>
+        <h2 class="section-title gs-reveal-up">¿Listo para <em class="text-cyan">empezar?</em></h2>
+        <p class="cta-subtitle gs-reveal-up">Agendá una llamada de 30 minutos sin cargo. Evaluamos tu presencia actual y te mostramos cómo optimizarla.</p>
+        <div class="cta-actions gs-reveal-up">
+          <!-- PLACEHOLDER: [CTA WHATSAPP LLAMADA] -->
+          <a href="https://wa.me/5491125371329?text=Hola!%20Quiero%20agendar%20la%20llamada%20gratuita%20de%2030%20minutos."
+            target="_blank" rel="noopener" class="btn btn-primary magnet-target">
+            <i class="fa-brands fa-whatsapp"></i> Agendar llamada gratis
+          </a>
+          <!-- PLACEHOLDER: [CTA EMAIL] -->
+          <a href="mailto:hola@demiurgostudio.com.ar" class="btn btn-outline magnet-target">
+            <i class="fa-solid fa-envelope"></i> Mandanos un mail
+          </a>
+        </div>
+        <p class="cta-trust gs-reveal-up">
+          <i class="fa-solid fa-shield-halved"></i> Sin compromisos · Respuesta directa en el día
+        </p>
+      </div>
+      <div class="cta-glow"></div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       MODALES DINÁMICOS UNIFICADOS (Servicios y Problema)
+       ===================================================== -->
+  <!-- Modal 1: Servicios -->
+  <div class="modal-overlay" id="modal-services" role="dialog" aria-modal="true" aria-labelledby="modal-serv-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-icon-wrap" id="modal-serv-icon-wrap"><i id="modal-serv-icon"></i></div>
+        <button class="modal-close-btn" data-close="modal-services" aria-label="Cerrar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <h3 class="modal-title" id="modal-serv-title"></h3>
+      <p class="modal-tagline" id="modal-serv-tagline"></p>
+      <div class="modal-body" id="modal-serv-body"></div>
+      <a href="#" target="_blank" rel="noopener" class="btn btn-wa modal-cta" id="modal-serv-cta">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="modal-cta-text"></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal 2: El Problema -->
+  <div class="modal-overlay" id="modal-problem" role="dialog" aria-modal="true" aria-labelledby="modal-prob-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-icon-wrap modal-icon-glow" id="modal-prob-icon-wrap"><i id="modal-prob-icon"></i></div>
+        <button class="modal-close-btn" data-close="modal-problem" aria-label="Cerrar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <h3 class="modal-title" id="modal-prob-title"></h3>
+      <div class="modal-body" id="modal-prob-body"></div>
+      <a href="#" target="_blank" rel="noopener" class="btn btn-wa modal-cta" id="modal-prob-cta">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="modal-cta-text"></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <!-- PLACEHOLDER: [LOGO FOOTER — assets/logo.svg] -->
+          <a href="#inicio" class="footer-logo-link" aria-label="Ir arriba">
+            <img src="assets/logo.svg" alt="Demiurgo Studio" class="footer-logo-img" />
+          </a>
+          <p class="footer-brand-desc">Estudio digital especializado en presencia web de alta velocidad y conversión directa para negocios en crecimiento.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Servicios</p>
+          <ul class="footer-links">
+            <li><a href="#servicios">Landing Page</a></li>
+            <li><a href="#servicios">Web Institucional</a></li>
+            <li><a href="#servicios">Catálogo Digital</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Contacto</p>
+          <ul class="footer-links">
+            <!-- PLACEHOLDER: [DATOS DE CONTACTO FOOTER] -->
+            <li><a href="https://wa.me/5491125371329" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+            <li><a href="https://instagram.com/demiurgostudio" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+            <li><a href="mailto:hola@demiurgostudio.com.ar"><i class="fa-solid fa-envelope"></i> hola@demiurgostudio.com.ar</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <!-- PLACEHOLDER: [COPYRIGHT AÑO Y NOMBRE] -->
+        <p class="footer-copy">© 2026 Demiurgo Studio. Todos los derechos reservados. · Hecho con criterio en Buenos Aires.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/5491125371329" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://instagram.com/demiurgostudio" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
