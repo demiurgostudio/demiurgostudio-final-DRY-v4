@@ -664,7 +664,7 @@ button {
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 .servicios-grid {
   display: grid;
